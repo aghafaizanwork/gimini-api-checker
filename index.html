@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API Status | System Check</title>
+    <!-- Google Fonts: Orbitron for headers, Share Tech Mono for code/data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Animated Background Mesh -->
+    <div class="bg-mesh"></div>
+    <div class="scanline"></div>
+
+    <main class="container">
+        <div class="card glass-panel" id="main-interface">
+            <header class="card-header">
+                <div class="status-indicator" id="system-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">SYSTEM STANDBY</span>
+                </div>
+                <h1 class="glitch-text" data-text="GEMINI API CHECKER">GEMINI API CHECKER</h1>
+            </header>
+
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="api-key">ACCESS KEY [API]</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="api-key" placeholder="Paste Gemini API Key Here" autocomplete="off">
+                        <div class="input-border"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="model-select">TARGET MODEL [SYSTEM]</label>
+                    <div class="input-wrapper">
+                        <select id="model-select">
+                            <option value="gemini-1.5-flash">GEMINI 1.5 FLASH (FASTEST)</option>
+                            <option value="gemini-pro">GEMINI 1.0 PRO (STABLE)</option>
+                            <option value="gemini-1.5-pro">GEMINI 1.5 PRO (SMARTEST)</option>
+                        </select>
+                        <div class="input-border"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="prompt-input">TEST PROTOCOL [PROMPT]</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="prompt-input" value="Hello Gemini, confirm system integrity.">
+                        <div class="input-border"></div>
+                    </div>
+                </div>
+
+                <button id="check-btn" class="cyber-btn">
+                    <div class="btn-content">
+                        <span class="btn-text">INITIATE SEQUENCE</span>
+                        <span class="btn-glitch"></span>
+                    </div>
+                    <div class="loader hidden">
+                        <svg class="spinner" viewBox="0 0 50 50">
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </div>
+                </button>
+            </section>
+
+            <section class="results-section hidden" id="results-area">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">LATENCY</span>
+                        <span class="metric-value" id="latency-value">-- ms</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">STATUS</span>
+                        <span class="metric-value" id="status-value">PENDING</span>
+                    </div>
+                </div>
+
+                <div class="response-terminal">
+                    <div class="terminal-header">
+                        <span>RESPONSE_LOG</span>
+                        <button id="copy-btn" class="mini-btn">COPY</button>
+                    </div>
+                    <pre id="api-response" class="terminal-body">Waiting for input...</pre>
+                </div>
+            </section>
+
+            <footer class="security-notice">
+                <span class="icon">🔒</span> SECURE CONNECTION: KEYS PROCESSED LOCALLY ONLY. NO STORAGE.
+            </footer>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
